@@ -14,10 +14,10 @@
 #
 # == Examples
 #
-# class {'dovecot':
-#   allow_ipv4_address => '192.168.0.0/24',
-#   allow_ipv6_address => '::1',
-# }
+#   class {'dovecot':
+#       allow_ipv4_address => '192.168.0.0/24',
+#       allow_ipv6_address => '::1',
+#   }
 #
 # == Authors
 #
@@ -25,8 +25,7 @@
 #
 # == License
 #
-# BSD-license
-# See file LICENSE
+# BSD-license. See file LICENSE.
 #
 class dovecot(
     $allow_ipv4_address = '127.0.0.1',
