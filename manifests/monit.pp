@@ -3,7 +3,8 @@
 #
 # Setup local monitoring for dovecot using monit
 #
-class dovecot::monit {
+class dovecot::monit inherits dovecot::params
+{
     monit::fragment { 'dovecot-dovecot.monit':
         modulename => 'dovecot',
     }

@@ -3,30 +3,30 @@
 #
 # Limits access to dovecot server based on IP-address/range
 #
-class dovecot::packetfilter(
+class dovecot::packetfilter
+(
     $allow_ipv4_address,
     $allow_ipv6_address
-)
+
+) inherits dovecot::params
 {
+
+    Firewall {
+        chain  => 'INPUT',
+        proto  => 'tcp',
+        port   => 993,
+        action => 'accept',
+    }
 
     # IPv4 rules
     firewall { '013 ipv4 accept imaps port':
         provider => 'iptables',
-        chain => 'INPUT',
-        proto => 'tcp',
-        port => 993,
-        source => "$allow_ipv4_address",
-        action => 'accept',
+        source   => $allow_ipv4_address,
     }
 
     # IPv6 rules
     firewall { '013 ipv6 accept imaps port':
         provider => 'ip6tables',
-        chain => 'INPUT',
-        proto => 'tcp',
-        port => 993,
-        source => "$allow_ipv6_address",
-        action => 'accept',
+        source   => $allow_ipv6_address,
     }
-
 }

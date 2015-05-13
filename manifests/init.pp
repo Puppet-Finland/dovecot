@@ -32,16 +32,16 @@ class dovecot(
     $allow_ipv6_address = '::1',
 )
 {
-    include dovecot::install
-    include dovecot::config
-    include dovecot::service
+    include ::dovecot::install
+    include ::dovecot::config
+    include ::dovecot::service
 
     if tagged('monit') {
-        include dovecot::monit
+        include ::dovecot::monit
     }
 
     if tagged('packetfilter') {
-        class { 'dovecot::packetfilter':
+        class { '::dovecot::packetfilter':
             allow_ipv4_address => $allow_ipv4_address,
             allow_ipv6_address => $allow_ipv6_address,
         }

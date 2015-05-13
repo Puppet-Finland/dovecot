@@ -1,0 +1,15 @@
+{
+  "name": "puppetfinland-dovecot",
+  "version": "0.3.1",
+  "author": "Puppet-Finland team",
+  "license": "BSD license",
+  "summary": "Setup dovecot",
+  "source": "https://github.com/Puppet-Finland/dovecot.git",
+  "project_page": "https://github.com/Puppet-Finland/dovecot",
+  "dependencies": [
+    { "name": "puppetfinland/monit", "version_requirement": ">= 0.5.1" },
+    { "name": "puppetfinland/packetfilter", "version_requirement": ">= 0.5.1" },
+    { "name": "puppetfinland/os", "version_requirement": ">= 0.5.7" },
+    { "name": "puppetfinland/systemd", "version_requirement": ">= 0.1.0" }
+  ]
+}

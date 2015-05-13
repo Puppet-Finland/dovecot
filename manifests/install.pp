@@ -3,10 +3,10 @@
 #
 # Installs dovecot package
 #
-class dovecot::install {
+class dovecot::install inherits dovecot::params {
 
     package { 'dovecot-dovecot':
-        name => 'dovecot-imapd',
         ensure => installed,
+        name   => $::dovecot::params::package_name,
     }
 }

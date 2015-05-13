@@ -3,16 +3,16 @@
 #
 # Configures Dovecot IMAP/POP3 server
 #
-class dovecot::config {
+class dovecot::config inherits dovecot::params {
 
     file { 'dovecot-dovecot.conf':
-        name => '/etc/dovecot/dovecot.conf',
+        ensure  => present,
+        name    => $::dovecot::params::config_name,
         content => template('dovecot/dovecot.conf.erb'),
-        ensure => present,
-        owner => root,
-        group => root,
-        mode  => 644,  
+        owner   => $::os::params::adminuser,
+        group   => $::os::params::admingroup,
+        mode    => '0644',
         require => Class['dovecot::install'],
-        notify => Class['dovecot::service'],
+        notify  => Class['dovecot::service'],
     }
 }
