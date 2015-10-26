@@ -104,8 +104,8 @@ ssl = required
 # We use puppet certificates to save ourselves some trouble
 #
 # FIXME: make this more obvious
-ssl_cert_file = /var/lib/puppet/ssl/certs/<%= fqdn %>.pem
-ssl_key_file = /var/lib/puppet/ssl/private_keys/<%= fqdn %>.pem
+ssl_cert_file = /var/lib/puppet/ssl/certs/<%= @fqdn %>.pem
+ssl_key_file = /var/lib/puppet/ssl/private_keys/<%= @fqdn %>.pem
 
 # If key file is password protected, give the password here. Alternatively
 # give it when starting dovecot with -p parameter. Since this file is often
