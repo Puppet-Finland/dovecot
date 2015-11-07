@@ -6,6 +6,10 @@
 class dovecot::params {
 
     include ::os::params
+    include ::puppetagent::params
+
+    $ssl_cert_file = "${::puppetagent::params::ssldir}/certs/${::fqdn}.pem"
+    $ssl_key_file = "${::puppetagent::params::ssldir}/private_keys/${::fqdn}.pem"
 
     case $::osfamily {
         'Debian': {

@@ -2,8 +2,8 @@
 #
 # This class installs and configures dovecot IMAP/POP3 server. It uses Puppet's 
 # certificates for SSL/TLS, and at the moment this behavior cannot be 
-# overridden. The certificates are expected to be found from 
-# /var/lib/puppet/ssl.
+# overridden. The location of the certificates is determined by
+# ::puppetagent::params::ssldir.
 #
 # == Parameters
 #
@@ -27,7 +27,8 @@
 #
 # BSD-license. See file LICENSE.
 #
-class dovecot(
+class dovecot
+(
     $allow_ipv4_address = '127.0.0.1',
     $allow_ipv6_address = '::1',
 )
